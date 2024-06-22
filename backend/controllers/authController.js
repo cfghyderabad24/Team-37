@@ -79,4 +79,28 @@ const loginController = async (req, res) => {
   }
 };
 
-module.exports = { registerController, loginController };
+const projectController = async (req, res) => {
+  try {
+    const { name, startDate, endDate } = req.body;
+    if (!name || !startDate || !endDate) {
+      res.status(200).send({
+        success: false,
+        message: "All fields are required",
+      });
+      return res.status(201).send({
+        success: true,
+        message: "Project created successfully",
+        project: { name, startDate, endDate },
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success: false,
+      message: "Error in project Controller",
+      error,
+    });
+  }
+};
+
+module.exports = { registerController, loginController, projectController };
