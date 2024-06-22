@@ -2,8 +2,8 @@ const grantModel = require("../models/grantModel");
 
 const getGrantController = async (req, res) => {
   try {
-    const {NGO,grant} = await grantModel.find();
-    if (!grant || ) {
+    const { NGO, grant } = await grantModel.find();
+    if (!grant || !NGO) {
       return res.status(404).send({
         success: false,
         message: "No user Found",
