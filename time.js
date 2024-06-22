@@ -1,26 +1,35 @@
-const { exec } = require('child_process');
-const pathToExecute = 'D:\\projects\\jpmc2\\nexmo-sms\\index.js'; // Replace with your actual path
+const Vonage = require('nexmo');
 
-// Fixed time in UTC (e.g., 5 days from now)
-const fixedTime = new Date();
-fixedTime.setDate(fixedTime.getDate() + 5); // Add 5 days
-console.log('Fixed Time:', fixedTime.toISOString());
+// Initialize Vonage (Nexmo) client
+const vonage = new Vonage({
+    apiKey: '66d194fc',
+    apiSecret: '',
+});
 
-// Current time
-const currentTime = new Date();
-console.log('Current Time:', currentTime.toISOString());
+// Function to send SMS
+async function sendSMS(to, text) {
+    try {
+        const from = '+917989917138'; // Replace with your sender number or name
 
-// Compare current time with fixed time
-if (currentTime.getTime() < fixedTime.getTime()) {
-    // Execute path code
-    exec(`node ${pathToExecute}`, (error, stdout, stderr) => {
-        if (error) {
-            console.error(`Error executing command: ${error}`);
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
-    });
-} else {
-    console.log('Current time is more than 5 days from the fixed time.');
+        // Sending SMS
+        vonage.message.sendSms(from, to, text, (err, responseData) => {
+            if (err) {
+                console.error('Error sending SMS:', err);
+            } else {
+                if (responseData.messages[0].status === '0') {
+                    console.log('SMS sent successfully:', responseData.messages[0]['message-id']);
+                } else {
+                    console.error(`SMS failed with error: ${responseData.messages[0]['error-text']}`);
+                }
+            }
+        });
+    } catch (error) {
+        console.error('Error sending SMS:', error);
+    }
 }
+
+// Example usage
+const recipientNumber = '+919502237652'; // Replace with recipient's phone number
+const messageText = 'Hello from Vonage (Nexmo)!'; // Replace with your message
+
+sendSMS(recipientNumber, messageText);
