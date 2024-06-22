@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 import "./App.css";
-
+import axios from "axios";
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
+  const [apiError, setApiError] = useState("");
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -16,7 +16,7 @@ const Login = (props) => {
     return re.test(String(email).toLowerCase());
   };
 
-  const onButtonClick = () => {
+  const onButtonClick = async () => {
     let valid = true;
 
     if (!validateEmail(email)) {
@@ -26,7 +26,7 @@ const Login = (props) => {
       setEmailError("");
     }
 
-    if (password.length < 6) {
+    if (password.length < 4) {
       setPasswordError("Password must be at least 6 characters.");
       valid = false;
     } else {
@@ -34,9 +34,26 @@ const Login = (props) => {
     }
 
     if (valid) {
-      // Perform login logic here (e.g., API call)
-      // If login is successful, navigate to the next page
-      navigate("/home");
+      try {
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/v1/auth/login",
+          {
+            email,
+            password,
+          }
+        );
+
+        if (response.data.success) {
+          // Save the token and user details as needed
+          // Navigate to the home page
+          navigate("/home");
+        } else {
+          setApiError(response.data.message);
+        }
+      } catch (error) {
+        setApiError("An error occurred during login. Please try again.");
+        console.error("Login error:", error);
+      }
     }
   };
 
@@ -74,6 +91,7 @@ const Login = (props) => {
           onClick={onButtonClick}
           value={"Log in"}
         />
+        {apiError && <label className="errorLabel">{apiError}</label>}
       </div>
     </div>
   );
