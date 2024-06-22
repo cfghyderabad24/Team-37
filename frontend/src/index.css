@@ -51,6 +51,26 @@ input[type='button'] {
   border-radius: 8px;
   cursor: pointer;
 }
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+}
+
+h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

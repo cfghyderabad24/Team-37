@@ -1,7 +1,6 @@
-//UploadForm.js
-
 import React, { useState } from "react";
 import axios from "axios";
+import "./UploadForm.css";
 
 const UploadForm = () => {
   const [title, setTitle] = useState("");
@@ -41,7 +40,7 @@ const UploadForm = () => {
   };
 
   return (
-    <div>
+    <div className="upload-form">
       <h2>Upload Document</h2>
       <form onSubmit={handleSubmit}>
         <div>

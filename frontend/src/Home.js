@@ -3,13 +3,17 @@ import UploadForm from "./UploadForm";
 // index.js or App.js
 import "bootstrap/dist/css/bootstrap.min.css";
 import Progress from "./progress";
+import Navbar from "./NavBar";
+import Sidebar from "./Sidebar";
 function Home() {
   return (
-    <div className="home">
-      <Progress />
-      <div>
-        <UploadForm />
-      </div>
+    <div>
+      <Navbar />
+
+      <Sidebar />
+      {/* <div className="home">
+        <h1>Welcome</h1>
+      </div> */}
     </div>
   );
 }
