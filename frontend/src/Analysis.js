@@ -1,10 +1,10 @@
 import React from "react";
-import DelayPieChart from "./../components/delayPieChart";
+import DelayPieChart from "./delayPieChart";
 import Bargraph from "./Bargraph";
-
-const analysis = () => {
+import "./analysis.css";
+const Analysis = () => {
   return (
-    <>
+    <div className="main_card">
       <div className="card">
         <DelayPieChart />
       </div>
@@ -13,8 +13,8 @@ const analysis = () => {
           <Bargraph />
         </h1>
       </div>
-    </>
+    </div>
   );
 };
 
-export default analysis;
+export default Analysis;
