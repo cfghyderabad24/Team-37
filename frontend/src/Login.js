@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./index.css";
 import "./App.css";
 import axios from "axios";
+
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,7 +47,7 @@ const Login = (props) => {
         if (response.data.success) {
           // Save the token and user details as needed
           // Navigate to the home page
-          navigate("/home");
+          navigate("/Home");
         } else {
           setApiError(response.data.message);
         }
