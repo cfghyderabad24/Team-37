@@ -4,8 +4,8 @@ import Bargraph from "./Bargraph";
 import "./analysis.css";
 const Analysis = () => {
   return (
-    <div className="main_card">
-      <div className="card">
+    <>
+      <div className="card ">
         <DelayPieChart />
       </div>
       <div>
@@ -13,7 +13,7 @@ const Analysis = () => {
           <Bargraph />
         </h1>
       </div>
-    </div>
+    </>
   );
 };
 

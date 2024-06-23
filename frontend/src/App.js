@@ -1,15 +1,10 @@
-import "./App.css";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 
 import Login from "./Login";
 import Analysis from "./Analysis";
 import PageNotFound from "./components/PageNotFound";
-// index.js or App.js
-import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "./Home";
-import UploadForm from "./UploadForm";
-import Progress from "./progress";
-import ApproveDocument from "./ApproveDocument";
 
 function App() {
   return (

@@ -19,14 +19,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    startDate: {
-      type: Date,
-      required: true,
-    },
-    endDate: {
-      type: Date,
-      required: true,
-    },
     isRC: {
       type: Boolean,
       default: false,
@@ -48,8 +40,8 @@ const userSchema = new mongoose.Schema(
       default: false,
     },
     status: {
-      type: String,
-      default: "pending",
+      type: Number,
+      default: 0,
     },
   },
   { timestamps: true }
