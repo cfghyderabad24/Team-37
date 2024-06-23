@@ -37,6 +37,50 @@ body {
   text-align: center;
   max-width: 90%;
 }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.document-upload-system {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.document-upload-system h1 {
+  margin-bottom: 20px;
+}
+
+.upload-section,
+.status-section,
+.approval-section {
+  margin-bottom: 20px;
+}
+
+.upload-section {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+}
+
+.status-section {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+}
+
+.approval-section {
+  padding-bottom: 20px;
+}
 
 h2 {
   margin-bottom: 20px;
