@@ -22,13 +22,13 @@ const UploadForm = () => {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("uploadedBy", uploadedBy);
-    formData.append("Grant", grant);
+    formData.append("grant", grant);
     formData.append("uploadDeadline", uploadDeadline);
     formData.append("pdfFile", pdfFile);
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/documents/upload",
+        "http://localhost:8000/documents/upload",
         formData,
         {
           headers: {
@@ -75,7 +75,7 @@ const UploadForm = () => {
         <div>
           <label>Grant:</label>
           <input
-            type="text"
+            type="number"
             value={grant}
             onChange={(e) => setGrant(e.target.value)}
             required
