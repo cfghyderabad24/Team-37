@@ -44,7 +44,13 @@ function Progress() {
       </select>
 
       {selectedOption && (
-        <div style={{ marginTop: "20px", width: "100px", height: "100px" }}>
+        <div
+          style={{
+            marginTop: "20px",
+            width: "100px",
+            height: "100px",
+          }}
+        >
           <CircularProgressbar
             value={
               options.find((opt) => opt.name === selectedOption).percentage

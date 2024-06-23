@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./UploadForm.css";
+import Sidebar from "./Sidebar";
 
 const UploadForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [uploadedBy, setUploadedBy] = useState("");
+  const [grant, setGrant] = useState("");
   const [uploadDeadline, setUploadDeadline] = useState("");
   const [pdfFile, setPdfFile] = useState(null);
   const [message, setMessage] = useState("");
@@ -20,6 +22,7 @@ const UploadForm = () => {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("uploadedBy", uploadedBy);
+    formData.append("Grant", grant);
     formData.append("uploadDeadline", uploadDeadline);
     formData.append("pdfFile", pdfFile);
 
@@ -66,6 +69,15 @@ const UploadForm = () => {
             type="text"
             value={uploadedBy}
             onChange={(e) => setUploadedBy(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Grant:</label>
+          <input
+            type="text"
+            value={grant}
+            onChange={(e) => setGrant(e.target.value)}
             required
           />
         </div>
