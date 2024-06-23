@@ -1,7 +1,7 @@
 import React from "react";
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
 
-const PieChartComponent = () => {
+const delayPieChart = () => {
   // Static data for testing
   const data = [
     { name: "On-Time", value: 60 },
@@ -34,4 +34,4 @@ const PieChartComponent = () => {
   );
 };
 
-export default PieChartComponent;
+export default delayPieChart;

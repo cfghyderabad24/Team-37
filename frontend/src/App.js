@@ -3,11 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Login from "./Login";
-import Analysis from "./components/analysis";
+import Analysis from "./Analysis";
 import PageNotFound from "./components/PageNotFound";
-import UploadForm from "./components/uploadForm";
-import DocumentStatus from "./components/DocumentStatus";
-import ApproveDocument from "./components/ApproveDocument";
 
 function App() {
   return (
@@ -16,9 +13,11 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/stats" element={<Analysis />} />
         <Route path="*" element={<PageNotFound />} />
-        <Route path="/uploadform" element={<UploadForm />} />
-        <Route path="/documentstatus" element={<DocumentStatus />} />
-        <Route path="/approve" element={<ApproveDocument />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/Home/UploadForm" element={<UploadForm />} />
+        <Route path="/Home/Progress" element={<Progress />} />
+        <Route path="/Home/Analysis" element={<Analysis />} />
+        <Route path="/Home/ApproveDocument" element={<ApproveDocument />} />
       </Routes>
     </BrowserRouter>
   );
